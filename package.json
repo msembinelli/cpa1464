@@ -1,7 +1,8 @@
 {
   "name": "cpa1464",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
     "build": "tsc && mkdir -p ./dist/maps && mkdir -p ./dist/samples && cp -rf ./src/maps/* ./dist/maps && cp -rf ./src/samples/* ./dist/samples",
@@ -32,9 +33,11 @@
     "@types/glob": "^7.1.1",
     "@types/moment": "^2.13.0",
     "@types/node": "^12.0.5",
+    "install-peers": "^1.0.3",
     "tslint": "^5.17.0",
     "tslint-config-airbnb": "^5.11.1",
     "tslint-config-airbnb-base": "^0.3.0",
-    "tslint-import-rules": "^0.3.0"
+    "tslint-import-rules": "^0.3.0",
+    "typescript": "^3.5.2"
   }
 }
