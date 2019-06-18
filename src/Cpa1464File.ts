@@ -9,7 +9,7 @@ export class Cpa1464File implements ICpa1464File {
   recordMappings: any = {};
   constructor(file?: string, externalMaps?: ICpa1464RecordMap[]) {
     this.file = file;
-    glob.sync(`${require.resolve('cpa1464').split('index.js')[0]}maps/*.json`).forEach((file: any) => {
+    glob.sync('./src/maps/*.json').forEach((file: any) => {
       const importedFile = require(path.resolve(file));
       this.recordMappings[importedFile.recordType] = importedFile;
     });
