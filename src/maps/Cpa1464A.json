@@ -1,0 +1,63 @@
+{
+  "header": [
+    {
+      "name": "logicalRecordTypeId",
+      "type": "alphanumeric",
+      "offset": 1,
+      "length": 1
+    },
+    {
+      "name": "logicalRecordCount",
+      "type": "numeric",
+      "offset": 2,
+      "length": 9
+    },
+    {
+      "name": "originatorsId",
+      "type": "alphanumeric",
+      "offset": 11,
+      "length": 10
+    },
+    {
+      "name": "fileCreationNo",
+      "type": "numeric",
+      "offset": 21,
+      "length": 4
+    }
+  ],
+  "segment": [
+    {
+      "name": "creationDate",
+      "type": "numeric",
+      "offset": 25,
+      "length": 6
+    },
+    {
+      "name": "destinationDataCentre",
+      "type": "numeric",
+      "offset": 31,
+      "length": 5
+    },
+    {
+      "name": "reservedCustomerDirectClearerCommunication",
+      "type": "alphanumeric",
+      "offset": 36,
+      "length": 20
+    },
+    {
+      "name": "currencyCodeIdentifier",
+      "type": "alphanumeric",
+      "offset": 56,
+      "length": 3
+    },
+    {
+      "name": "filler",
+      "type": "alphanumeric",
+      "offset": 59,
+      "length": 1406
+    }
+  ],
+  "recordType": "A",
+  "segmentCount": 1,
+  "segmentLength": 1440
+}

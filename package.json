@@ -1,0 +1,38 @@
+{
+  "name": "cpa1464",
+  "version": "0.1.0",
+  "private": true,
+  "main": "index.ts",
+  "scripts": {
+    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+    "build": "tsc && mkdir -p ./dist/src/maps && mkdir -p ./dist/src/samples && cp -rf ./src/maps/* ./dist/src/maps && cp -rf ./src/samples/* ./dist/src/samples",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=8",
+    "npm": ">=5.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msembinelli/cpa1464.git"
+  },
+  "author": "Matthew Sembinelli <matthew.sembinelli@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/msembinelli/cpa1464/issues"
+  },
+  "homepage": "https://github.com/msembinelli/cpa1464#readme",
+  "dependencies": {
+    "glob": "^7.1.4",
+    "moment": "^2.24.0"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/moment": "^2.13.0",
+    "@types/node": "^12.0.5",
+    "tslint": "^5.17.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "tslint-config-airbnb-base": "^0.3.0",
+    "tslint-import-rules": "^0.3.0"
+  }
+}

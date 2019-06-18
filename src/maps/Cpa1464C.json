@@ -1,0 +1,141 @@
+{
+  "header": [
+    {
+      "name": "logicalRecordTypeId",
+      "type": "alphanumeric",
+      "offset": 1,
+      "length": 1
+    },
+    {
+      "name": "logicalRecordCount",
+      "type": "numeric",
+      "offset": 2,
+      "length": 9
+    },
+    {
+      "name": "originatorsId",
+      "type": "alphanumeric",
+      "offset": 11,
+      "length": 10
+    },
+    {
+      "name": "fileCreationNo",
+      "type": "numeric",
+      "offset": 21,
+      "length": 4
+    }
+  ],
+  "segment": [
+    {
+      "name": "transactionType",
+      "type": "numeric",
+      "offset": 25,
+      "length": 3
+    },
+    {
+      "name": "amount",
+      "type": "numeric",
+      "offset": 28,
+      "length": 10
+    },
+    {
+      "name": "dateFundsToBeAvailable",
+      "type": "numeric",
+      "offset": 38,
+      "length": 6
+    },
+    {
+      "name": "institutionalIdentificationNo",
+      "type": "numeric",
+      "offset": 44,
+      "length": 9
+    },
+    {
+      "name": "payeeAccountNo",
+      "type": "alphanumeric",
+      "offset": 53,
+      "length": 12
+    },
+    {
+      "name": "itemTraceNo",
+      "type": "numeric",
+      "offset": 65,
+      "length": 22
+    },
+    {
+      "name": "storedTransactionType",
+      "type": "numeric",
+      "offset": 87,
+      "length": 3
+    },
+    {
+      "name": "originatorsShortName",
+      "type": "alphanumeric",
+      "offset": 90,
+      "length": 15
+    },
+    {
+      "name": "payeeName",
+      "type": "alphanumeric",
+      "offset": 105,
+      "length": 30
+    },
+    {
+      "name": "originatorsLongName",
+      "type": "alphanumeric",
+      "offset": 135,
+      "length": 30
+    },
+    {
+      "name": "originatingDirectClearersUsersId",
+      "type": "alphanumeric",
+      "offset": 165,
+      "length": 10
+    },
+    {
+      "name": "originatorsCrossReferenceNo",
+      "type": "alphanumeric",
+      "offset": 175,
+      "length": 19
+    },
+    {
+      "name": "institutionalIdNoForReturns",
+      "type": "numeric",
+      "offset": 194,
+      "length": 9
+    },
+    {
+      "name": "accountNoForReturns",
+      "type": "alphanumeric",
+      "offset": 203,
+      "length": 12
+    },
+    {
+      "name": "originatorsSundryInformation",
+      "type": "alphanumeric",
+      "offset": 215,
+      "length": 15
+    },
+    {
+      "name": "filler",
+      "type": "alphanumeric",
+      "offset": 230,
+      "length": 22
+    },
+    {
+      "name": "originatorDirectClearerSettlementCode",
+      "type": "alphanumeric",
+      "offset": 252,
+      "length": 2
+    },
+    {
+      "name": "invalidDataElementId",
+      "type": "numeric",
+      "offset": 254,
+      "length": 11
+    }
+  ],
+  "recordType": "C",
+  "segmentCount": 6,
+  "segmentLength": 240
+}

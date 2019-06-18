@@ -1,0 +1,87 @@
+{
+  "header": [
+    {
+      "name": "logicalRecordTypeId",
+      "type": "alphanumeric",
+      "offset": 1,
+      "length": 1
+    },
+    {
+      "name": "logicalRecordCount",
+      "type": "numeric",
+      "offset": 2,
+      "length": 9
+    },
+    {
+      "name": "originatorsId",
+      "type": "alphanumeric",
+      "offset": 11,
+      "length": 10
+    },
+    {
+      "name": "fileCreationNo",
+      "type": "numeric",
+      "offset": 21,
+      "length": 4
+    }
+  ],
+  "segment": [
+    {
+      "name": "totalValueDebitTransactions",
+      "type": "numeric",
+      "offset": 25,
+      "length": 14
+    },
+    {
+      "name": "totalNumberDebitTransactions",
+      "type": "numeric",
+      "offset": 39,
+      "length": 8
+    },
+    {
+      "name": "totalValueCreditTransactions",
+      "type": "numeric",
+      "offset": 47,
+      "length": 14
+    },
+    {
+      "name": "totalNumberCreditTransactions",
+      "type": "numeric",
+      "offset": 61,
+      "length": 8
+    },
+    {
+      "name": "totalValueErrorCorrectionsE",
+      "type": "numeric",
+      "offset": 69,
+      "length": 14
+    },
+    {
+      "name": "totalNumberErrorCorrectionsE",
+      "type": "numeric",
+      "offset": 83,
+      "length": 8
+    },
+    {
+      "name": "totalValueErrorCorrectionsF",
+      "type": "numeric",
+      "offset": 91,
+      "length": 14
+    },
+    {
+      "name": "totalNumberErrorCorrectionsF",
+      "type": "numeric",
+      "offset": 105,
+      "length": 8
+    },
+    {
+      "name": "filler",
+      "type": "alphanumeric",
+      "offset": 113,
+      "length": 1352
+    }
+  ],
+  "recordType": "Z",
+  "segmentCount": 1,
+  "segmentLength": 1440
+}

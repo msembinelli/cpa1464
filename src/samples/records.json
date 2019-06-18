@@ -1,0 +1,70 @@
+[
+  {
+    "header": {
+      "logicalRecordTypeId": "A",
+      "logicalRecordCount": "000000001",
+      "originatorsId": "9999911111",
+      "fileCreationNo": "0001"
+    },
+    "segments": [
+      {
+        "creationDate": "019163",
+        "destinationDataCentre": "99999",
+        "reservedCustomerDirectClearerCommunication": "CLEARER COMM",
+        "currencyCodeIdentifier": "CAD",
+        "filler": ""
+      }
+    ]
+  },
+  {
+    "header": {
+      "logicalRecordTypeId": "C",
+      "logicalRecordCount": "000000002",
+      "originatorsId": "9999911111",
+      "fileCreationNo": "0001"
+    },
+    "segments": [
+      {
+        "transactionType": "450",
+        "amount": "0000001000",
+        "dateFundsToBeAvailable": "019163",
+        "institutionalIdentificationNo": "000188888",
+        "payeeAccountNo": "122334455",
+        "itemTraceNo": "0000999990001111110000",
+        "storedTransactionType": "000",
+        "originatorsShortName": "CUSTOMER SHORT",
+        "payeeName": "Payee",
+        "originatorsLongName": "CUSTOMER LONG",
+        "originatingDirectClearersUsersId": "",
+        "originatorsCrossReferenceNo": "1234567890",
+        "institutionalIdNoForReturns": "000105555",
+        "accountNoForReturns": "00998877665",
+        "originatorsSundryInformation": "Sundry info",
+        "filler": "",
+        "originatorDirectClearerSettlementCode": "",
+        "invalidDataElementId": "00000000000"
+      }
+    ]
+  },
+  {
+    "header": {
+      "logicalRecordTypeId": "Z",
+      "logicalRecordCount": "000000003",
+      "originatorsId": "9999911111",
+      "fileCreationNo": "0001"
+    },
+    "segments": [
+      {
+        "totalValueDebitTransactions": "00000000000000",
+        "totalNumberDebitTransactions": "00000000",
+        "totalValueCreditTransactions": "00000000001000",
+        "totalNumberCreditTransactions": "00000001",
+        "totalValueErrorCorrectionsE": "00000000000000",
+        "totalNumberErrorCorrectionsE": "00000000",
+        "totalValueErrorCorrectionsF": "00000000000000",
+        "totalNumberErrorCorrectionsF": "00000000",
+        "filler": ""
+      }
+    ]
+  }
+]
