@@ -1,6 +1,6 @@
 {
   "name": "cpa1464",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "index.ts",
   "scripts": {
     "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
