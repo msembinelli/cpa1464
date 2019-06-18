@@ -3,13 +3,13 @@ import { Cpa1464Record } from './Cpa1464Record';
 const glob = require('glob');
 const path = require('path');
 
-export default class Cpa1464File implements ICpa1464File {
+export class Cpa1464File implements ICpa1464File {
   records: Cpa1464Record[];
   file: string;
   recordMappings: any = {};
   constructor(file?: string, externalMaps?: ICpa1464RecordMap[]) {
     this.file = file;
-    glob.sync('./src/lib/maps/*.json').forEach((file: any) => {
+    glob.sync(`${require.resolve('cpa1464').split('index.js')[0]}/dist/maps/*.json`).forEach((file: any) => {
       const importedFile = require(path.resolve(file));
       this.recordMappings[importedFile.recordType] = importedFile;
     });

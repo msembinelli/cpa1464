@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "declaration": true,
     "module": "commonjs",
     "esModuleInterop": true,
     "resolveJsonModule": true,
@@ -14,5 +15,5 @@
     },
     "lib": ["es2017"]
   },
-  "include": ["src/**/*", "src/**/*.json", "./index.ts"]
+  "include": ["src/**/*", "src/**/*.json", "index.js"]
 }

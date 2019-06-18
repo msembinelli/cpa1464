@@ -1,4 +1,4 @@
-import Cpa1464File from '../Cpa1464File';
+import { Cpa1464File } from '../Cpa1464File';
 const fs = require('fs');
 const records = require('./records.json');
 

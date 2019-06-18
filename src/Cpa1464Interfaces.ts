@@ -32,6 +32,7 @@ export interface ICpa1464Record {
 export interface ICpa1464File {
   records: ICpa1464Record[];
   file: string;
+  recordMappings: any;
   formatRecords(data: any): any;
   parseRecords(): any;
   generateFile(): any;
