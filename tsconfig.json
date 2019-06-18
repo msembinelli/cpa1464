@@ -15,5 +15,5 @@
     },
     "lib": ["es2017"]
   },
-  "include": ["src/**/*", "src/**/*.json", "index.js"]
+  "include": ["src/**/*", "src/**/*.json", "src/index.js"]
 }
