@@ -31,7 +31,7 @@ export class Cpa1464Alphanumeric extends Cpa1464Element implements ICpa1464Eleme
   }
   private checkType(name: string, data: string) {
     if (data.length > 0 && !data.match(/^[0-9a-zA-Z ]+$/)) {
-      throw new Error(`Numeric data element ${name} contains alphabetical characters which is not allowed`);
+      throw new Error(`Alphanumeric data element ${name} contains non-alphanumeric characters which is not allowed`);
     }
   }
   public format() {

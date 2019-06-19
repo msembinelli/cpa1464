@@ -4,7 +4,7 @@ Node package for creating cpa1464 standard files from JSON objects https://www.p
 
 ## Installation
 
-`npm install --save cpa1464`
+`npm install --save cpa1464` or `yarn add cpa1464`
 
 ## Example
 
