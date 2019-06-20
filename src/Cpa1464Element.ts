@@ -52,7 +52,7 @@ export class Cpa1464Numeric extends Cpa1464Element implements ICpa1464Element {
     }
   }
   private checkType(name: string, data: string) {
-    if (data.length > 0 && !data.match(/^[0-9]+$/)) {
+    if (data.length > 0 && !data.match(/^[0-9 ]+$/)) {
       throw new Error(`Numeric data element '${name}' contains alphabetical characters which is not allowed`);
     }
   }
