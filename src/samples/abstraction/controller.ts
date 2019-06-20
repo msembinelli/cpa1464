@@ -8,7 +8,7 @@ import {
 import moment from 'moment';
 
 export class Cpa1464Controller implements ICpa1464Controller {
-  fileCreationNumber: number = 1;
+  static fileCreationNumber: number = 1;
   private dateToJulian(date: string) {
     return `0${moment(date, 'YYYY-MM-DD').format('YYDDD')}`;
   }
@@ -20,7 +20,7 @@ export class Cpa1464Controller implements ICpa1464Controller {
       logicalRecordTypeId: 'A',
       logicalRecordCount: recordMeta.logicalRecordCount.toString(),
       originatorsId: `${config.dataCentre}${config.eftId}`,
-      fileCreationNo: this.fileCreationNumber.toString(),
+      fileCreationNo: Cpa1464Controller.fileCreationNumber.toString(),
     };
     const segments: any = [
       {
@@ -42,7 +42,7 @@ export class Cpa1464Controller implements ICpa1464Controller {
       logicalRecordTypeId: 'Z',
       logicalRecordCount: recordMeta.logicalRecordCount.toString(),
       originatorsId: `${config.dataCentre}${config.eftId}`,
-      fileCreationNo: this.fileCreationNumber.toString(),
+      fileCreationNo: Cpa1464Controller.fileCreationNumber.toString(),
     };
     const segments: any = [
       {
@@ -75,7 +75,7 @@ export class Cpa1464Controller implements ICpa1464Controller {
         logicalRecordTypeId: 'C',
         logicalRecordCount: recordMeta.logicalRecordCount.toString(),
         originatorsId: `${config.dataCentre}${config.eftId}`,
-        fileCreationNo: this.fileCreationNumber.toString(),
+        fileCreationNo: Cpa1464Controller.fileCreationNumber.toString(),
       };
       cRecords.push({
         header,
@@ -93,9 +93,9 @@ export class Cpa1464Controller implements ICpa1464Controller {
           : this.dateToJulian(moment().format('YYYY-MM-DD')),
         institutionalIdentificationNo: `${transaction.bankId}${transaction.transitNumber}`,
         payeeAccountNo: `${transaction.accountNumber}`,
-        itemTraceNo: `${transaction.returnBankId}9${config.dataCentre}${this.fileCreationNumber
-          .toString()
-          .padStart(4, '0')}${config.eftId}0000`,
+        itemTraceNo: `${transaction.returnBankId}9${
+          config.dataCentre
+        }${Cpa1464Controller.fileCreationNumber.toString().padStart(4, '0')}${config.eftId}0000`,
         storedTransactionType: '0',
         originatorsShortName: `${transaction.shortName}`,
         payeeName: `${transaction.customerName}`,
@@ -137,7 +137,7 @@ export class Cpa1464Controller implements ICpa1464Controller {
     };
 
     if (config.fileCreationNumber && config.fileCreationNumber.length > 0) {
-      this.fileCreationNumber = parseInt(config.fileCreationNumber, 10);
+      Cpa1464Controller.fileCreationNumber = parseInt(config.fileCreationNumber, 10);
     }
 
     let records: any = [];
@@ -145,9 +145,9 @@ export class Cpa1464Controller implements ICpa1464Controller {
     records = records.concat(this.createCRecords(config, transactions, recordMeta));
     records.push(this.createFooterRecord(config, recordMeta));
 
-    this.fileCreationNumber += 1;
-    if (this.fileCreationNumber >= 1000) {
-      this.fileCreationNumber = 0;
+    Cpa1464Controller.fileCreationNumber += 1;
+    if (Cpa1464Controller.fileCreationNumber >= 1000) {
+      Cpa1464Controller.fileCreationNumber = 0;
     }
 
     const cpa1464 = new Cpa1464File();
@@ -167,27 +167,29 @@ export class Cpa1464Controller implements ICpa1464Controller {
           config.fileCreationNumber = record.header.fileCreationNo;
           config.dataCentre = record.segments[0].destinationDataCentre;
           config.currencyCode = record.segments[0].currencyCodeIdentifier;
-          config.directClearer = record.segments[0].directClearer;
+          config.directClearer = record.segments[0].reservedCustomerDirectClearerCommunication;
           config.fileCreationDate = this.julianToDate(record.segments[0].creationDate);
           break;
         case 'C':
           record.segments.forEach((segment: any) => {
-            transactions.push({
-              type: 'CREDIT',
-              date: this.julianToDate(segment.dateFundsToBeAvailable),
-              amount: segment.amount,
-              bankId: segment.institutionalIdentificationNo.substr(1, 3),
-              transitNumber: segment.institutionalIdentificationNo.substr(4, 5),
-              accountNumber: segment.payeeAccountNo,
-              customerName: segment.customerName,
-              returnBankId: segment.institutionalIdNoForReturns.substr(1, 3),
-              returnTransitNumber: segment.institutionalIdNoForReturns.substr(4, 5),
-              returnAccountNumber: segment.accountNoForReturns,
-              shortName: segment.originatorsShortName,
-              longName: segment.originatorsLongName,
-              sundryInfo: segment.originatorsSundryInformation,
-              crossReferenceNumber: segment.originatorsCrossReferenceNo,
-            });
+            if (segment.amount.length > 0) {
+              transactions.push({
+                type: 'CREDIT',
+                date: this.julianToDate(segment.dateFundsToBeAvailable),
+                amount: segment.amount,
+                bankId: segment.institutionalIdentificationNo.substr(1, 3),
+                transitNumber: segment.institutionalIdentificationNo.substr(4, 5),
+                accountNumber: segment.payeeAccountNo,
+                customerName: segment.customerName,
+                returnBankId: segment.institutionalIdNoForReturns.substr(1, 3),
+                returnTransitNumber: segment.institutionalIdNoForReturns.substr(4, 5),
+                returnAccountNumber: segment.accountNoForReturns,
+                shortName: segment.originatorsShortName,
+                longName: segment.originatorsLongName,
+                sundryInfo: segment.originatorsSundryInformation,
+                crossReferenceNumber: segment.originatorsCrossReferenceNo,
+              });
+            }
           });
           break;
         case 'Z':

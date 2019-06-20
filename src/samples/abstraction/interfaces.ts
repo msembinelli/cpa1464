@@ -37,7 +37,6 @@ export interface ICpa1464ControllerMeta {
 }
 
 export interface ICpa1464Controller {
-  fileCreationNumber: number;
   formatFile(config: ICpa1464ControllerConfig, transactions: ICpa1464ControllerTransaction[]): any;
   parseFile(file: string): any;
 }
