@@ -172,7 +172,7 @@ export class Cpa1464Controller implements ICpa1464Controller {
           break;
         case 'C':
           record.segments.forEach((segment: any) => {
-            if (segment.amount.length > 0) {
+            if (segment.payeeAccountNo.length > 0) {
               transactions.push({
                 type: 'CREDIT',
                 date: this.julianToDate(segment.dateFundsToBeAvailable),
@@ -180,7 +180,7 @@ export class Cpa1464Controller implements ICpa1464Controller {
                 bankId: segment.institutionalIdentificationNo.substr(1, 3),
                 transitNumber: segment.institutionalIdentificationNo.substr(4, 5),
                 accountNumber: segment.payeeAccountNo,
-                customerName: segment.customerName,
+                customerName: segment.payeeName,
                 returnBankId: segment.institutionalIdNoForReturns.substr(1, 3),
                 returnTransitNumber: segment.institutionalIdNoForReturns.substr(4, 5),
                 returnAccountNumber: segment.accountNoForReturns,
