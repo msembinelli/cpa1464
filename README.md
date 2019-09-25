@@ -11,7 +11,7 @@ Node package for creating cpa1464 standard files from JSON objects https://www.p
 The controller provided in `samples/abstraction` is an example of how we can abstract away some of the finer details of cpa1464. Feel free to build your own controller or use the one provided.
 NOTE: the default controller only provides support for A, C, Z records.
 
-```
+```ts
 import fs from 'fs';
 import { Cpa1464Controller } from './src/samples/abstraction/controller';
 import { ICpa1464ControllerConfig, ICpa1464ControllerTransaction } from './src/samples/abstraction/interfaces';
